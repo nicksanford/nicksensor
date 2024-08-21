@@ -24,7 +24,8 @@ var (
 )
 
 type fake struct {
-	mu sync.Mutex
+	mu       sync.Mutex
+	bootTime time.Time
 	resource.Named
 	resource.AlwaysRebuild
 	resource.TriviallyCloseable
@@ -72,8 +73,9 @@ func newSensor(
 
 	maybeSleep(c, logger)
 	return &fake{
-		Named:  conf.ResourceName().AsNamed(),
-		logger: logger,
+		Named:    conf.ResourceName().AsNamed(),
+		bootTime: time.Now(),
+		logger:   logger,
 	}, nil
 }
 
@@ -84,6 +86,7 @@ func (f *fake) Readings(ctx context.Context, extra map[string]interface{}) (map[
 	now := time.Now()
 	return map[string]interface{}{
 		"now_unix":       now.Unix(),
+		"boot_time_unix": f.bootTime.Unix(),
 		"now_unix_micro": now.UnixMicro(),
 		"call_count":     count,
 	}, nil
