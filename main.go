@@ -16,7 +16,7 @@ import (
 	"go.viam.com/rdk/resource"
 )
 
-var Model = resource.NewModel("ncs", "sensor", "boom")
+var Model = resource.NewModel("ncs", "sensor", "nicksensor")
 var (
 	Reset = "\033[0m"
 	Green = "\033[32m"

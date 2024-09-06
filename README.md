@@ -1,4 +1,4 @@
-# Boom Sensor
+# Nick Sensor
 
 ### Build:
 ```
@@ -10,10 +10,10 @@ make
 {
   "components": [
     {
-      "name": "boom",
+      "name": "nicksensor",
       "namespace": "rdk",
       "type": "sensor",
-      "model": "ncs:sensor:boom",
+      "model": "ncs:sensor:nicksensor",
       "attributes": {},
       "service_configs": [
         {
@@ -51,8 +51,8 @@ make
   "modules": [
     {
       "type": "local",
-      "name": "boomsensor",
-      "executable_path": "/home/user/boomsensor"
+      "name": "nicksensor",
+      "executable_path": "/home/user/nicksensor"
     }
   ]
 }
