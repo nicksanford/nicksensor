@@ -83,7 +83,7 @@ func (f *fake) Readings(ctx context.Context, extra map[string]interface{}) (map[
 	f.mu.Lock()
 	defer f.mu.Unlock()
 	if len(extra) > 0 {
-		f.logger.Infof("extra: %#v", extra)
+		f.logger.Debugf("extra: %#v", extra)
 	}
 	count := f.counter.Add(1)
 	now := time.Now()
